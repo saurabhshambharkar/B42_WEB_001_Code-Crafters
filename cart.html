@@ -13,19 +13,56 @@
             text-align: center;
             font-family: Georgia, Times, 'Times New Roman', serif;
         }
+        h1:hover{
+            font-weight: 200;
+        }
         .cart-items {
             display: grid;
+            padding-right:10px;
+            grid-template-columns: repeat(3,1fr);
             gap: 1rem;
+        }
+        @media screen and (max-width:500px){
+            .cart-items{
+                grid-template-columns:repeat(1,1fr);
+                gap: 0.5rem;
+            }
+        }
+
+        @media screen and (min-width:501px) and (max-width:780px){
+            .cart-items{
+                grid-template-columns: repeat(2,1fr);
+                gap: 1rem;
+            }
+        }
+
+        .cart-item:hover{
+            animation: 1.3s linear 0s infinite alternate move;
+            
+            color: aliceblue;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,84,159,1) 15%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
         }
         .cart-item {
             display: flex;
             align-items: center;
+            
             background-color: #ccc;
             gap: 1rem;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 1rem;
+            
         }
+        @keyframes move {
+            from {
+                transform: translateX(0px);
+            }
+            to {
+                /* returns the sun to its default position */
+                transform: translateX(10px);
+            }
+        }
+
         img {
             width: 100px;
             height: auto;
@@ -56,6 +93,9 @@
         }
         /* New Shop Now Button */
         .shop-now {
+            position: relative;
+            left: 40%;
+            width: 20%;
             display: block;
             text-align: center;
             background-color: #28a745;
@@ -65,9 +105,11 @@
             border-radius: 5px;
             text-decoration: none;
             margin-top: 20px;
+            
         }
         .shop-now:hover {
             background-color: #218838;
+            transform: scale(1.1);
         }
     </style>
 </head>
