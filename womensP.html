@@ -25,6 +25,7 @@
         align-items: center;
         border-bottom: 1px solid #ccc;
         z-index: 1000;
+        margin-bottom: 10px;
       }
       .logo {
         font-size: 24px;
@@ -33,6 +34,7 @@
       nav {
         flex-grow: 1;
         text-align: center;
+
       }
       nav ul {
         list-style-type: none;
@@ -71,6 +73,7 @@
       main {
             display: flex;
             padding: 20px;
+            margin-top: 5%;
         }
         .filters {
             width: 25%;
@@ -144,7 +147,7 @@
     <main>
         <aside class="filters">
             <h2>Filter</h2>
-            <input type="text" placeholder="Filter by keyword">
+            <input type="text" placeholder="Filter by keyword" id="searchProduct">
             <h3>Gender</h3>
             <h3>Category</h3>
             <h3>Designer</h3>
@@ -195,6 +198,10 @@
                 let response = await fetch('https://modesensewomenclothing-default-rtdb.firebaseio.com/women.json');
                 let data = await response.json();
                 let productsContainer = document.getElementById('products');
+
+                let searchProduct=document.querySelector("#searchProduct")
+                searchProduct.addEventListener("input",(e)=>{displayFilterData(data,e.target.value)})
+
                 //console.log( data)
                 //data.forEach(([id,item])=>{console.log(id,data)})
                 let i=0;
@@ -249,4 +256,50 @@
             window.location.href = './cart.html';
         }
         fetchProducts();
+
+
+        // Filter product
+        async function displayFilterData(data,srchwd){
+            try{
+                let productsContainer = document.getElementById('products');
+                productsContainer.innerHTML=""
+                data=data.filter((item)=>item.description.toLowerCase().includes(srchwd))
+                let i=0;
+                for (let key in data) {
+                    
+                    //console.log(data[key])
+                    let {Designers,category,description,image1,price,productCategory} = data[key];
+                    let productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+
+                    let addcart = document.createElement("button");
+                    addcart.innerText = "Add to Cart";
+                    addcart.classList.add("addcartbtn");
+                    addcart.setAttribute("id",i)
+                    i++
+                    // addcart.dataset.id = product.id;
+                    // addcart.dataset.title = product.Designers;
+                    // addcart.dataset.price = product.price; // Dummy price
+                    // addcart.dataset.image = product.image2;
+                    //
+                    
+
+                    //console.log(price)
+                    productDiv.innerHTML = `
+                        <img src="${image1}" alt="${description}">
+                        <h3>${Designers}</h3>
+                        <p>${category}</p>
+                        <p>${description}</p>
+                        <p>Price: ${price}</p>
+                    `;
+                    productDiv.append(addcart)
+                    productsContainer.appendChild(productDiv);
+                    addcart.addEventListener("click", (e) => addToCart(e.target.id,Designers,price,image1));
+                    
+                }
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
 </script>
