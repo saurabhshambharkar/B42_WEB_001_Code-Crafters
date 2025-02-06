@@ -103,7 +103,7 @@
                         <img src="${item.image}" alt="${item.title}">
                         <div>
                             <h2>${item.title}</h2>
-                            <p>Price: $${item.price.toFixed(2)}</p>
+                            <p>Price: $${item.price}</p>
                             <button class="btn" onclick="updateQuantity(${item.id}, -1)">-</button>
                             <span>${item.quantity}</span>
                             <button class="btn" onclick="updateQuantity(${item.id}, 1)">+</button>
