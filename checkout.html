@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-family: Georgia, Times, 'Times New Roman', serif;
+        }
+        .payment-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .pay-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .pay-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Payment Gateway</h1>
+    <div class="payment-container">
+        <p><strong>Total Amount: $<span id="totalAmount">0.00</span></strong></p>
+        <button class="pay-btn" onclick="processPayment()">Pay Now</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve total price from local storage
+            const totalAmount = localStorage.getItem("totalPrice") || "0.00";
+            document.getElementById("totalAmount").textContent = totalAmount;
+        });
+
+        function processPayment() {
+            alert("Payment successful! 🎉");
+            localStorage.removeItem("cart");  // Clear cart after payment
+            window.location.href = "Shop.html";  // Redirect to shop
+        }
+    </script>
+
+</body>
+</html>
