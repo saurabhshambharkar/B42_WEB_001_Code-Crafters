@@ -70,6 +70,19 @@
         font-size: 16px;
         padding: 5px;
       }
+      .addcartbtn{
+            padding: 10px 15px;
+            color: white;
+            font-weight: 700;
+            background-color: rgb(28, 28, 177);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+      }
+      .addcartbtn:hover {
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,84,159,1) 15%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+      }
       main {
             display: flex;
             padding: 20px;
@@ -263,7 +276,7 @@
             try{
                 let productsContainer = document.getElementById('products');
                 productsContainer.innerHTML=""
-                data=data.filter((item)=>item.description.toLowerCase().includes(srchwd))
+                data=data.filter((item)=>item.description.toLowerCase().includes(srchwd.toLowerCase()))
                 let i=0;
                 for (let key in data) {
                     
