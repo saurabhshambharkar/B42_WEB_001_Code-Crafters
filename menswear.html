@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Fashion Store</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+        font-weight: lighter;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        z-index: 1000;
+      }
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      nav {
+        flex-grow: 1;
+        text-align: center;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin: 0 15px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .right-icons {
+        display: flex;
+        align-items: center;
+      }
+      .right-icons img {
+        width: 24px;
+        height: 24px;
+        margin-left: 15px;
+        cursor: pointer;
+      }
+      .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      .search-bar input {
+        border: none;
+        outline: none;
+        font-size: 16px;
+        padding: 5px;
+      }
+      main {
+            display: flex;
+            padding: 20px;
+        }
+        .filters {
+            width: 25%;
+            padding: 15px;
+            background: #f8f8f8;
+        }
+        .filters h2, .filters h3 {
+            margin: 10px 0;
+        }
+        .filters ul {
+            list-style: none;
+            padding: 0;
+        }
+        .filters ul li {
+            padding: 5px 0;
+        }
+        .products {
+            width: 75%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            background: #fff;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo" >MODESONS  <img src="./WhatsApp Image 2025-02-05 at 11.08.26_64fbfe95.ico" alt="logo" style="height: 30px;"></div>
+      <nav>
+        <ul>
+          <li>Women</li>
+          <li>Men</li>
+          <li>Kids</li>
+          <li>Home</li>
+          <li>Designers</li>
+          <li>Community</li>
+          <li>Sale</li>
+        </ul>
+      </nav>
+      <div class="right-icons">
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/128/14009/14009677.png" alt="Country" />
+        <img src="https://cdn-icons-png.flaticon.com/128/3602/3602145.png" alt="Notifications" />
+        <img src="https://cdn-icons-png.flaticon.com/128/6051/6051092.png" alt="Wishlist" />
+        <img src="https://cdn-icons-png.flaticon.com/128/4903/4903482.png" alt="Cart" />
+        <img src="https://cdn-icons-png.flaticon.com/128/9308/9308008.png" alt="Profile" />
+      </div>
+    </header>
+    <main>
+        <aside class="filters">
+            <h2>Filter</h2>
+            <input type="text" placeholder="Filter by keyword">
+            <h3>Gender</h3>
+            <h3>Category</h3>
+            <h3>Designer</h3>
+            <h3>Color</h3>
+            <h3>Material</h3>
+            <h3>Conditions</h3>
+            <h3>Sale Discount</h3>
+            <h3>Store</h3>
+            <h3>Related Categories</h3>
+            <ul>
+                <li>men Clothing</li>
+                <li>men Shoes</li>
+                <li>men Bags</li>
+                <li>men Accessories</li>
+                <li>men Beauty</li>
+                <li>men Sale</li>
+                <li>Women</li>
+                <li>Pre-Owned men</li>
+            </ul>
+            <h3>Related Searches</h3>
+            <ul>
+                <li>Gucci men</li>
+                <li>Versace men</li>
+                <li>Valentino men</li>
+                <li>Saint Laurent men</li>
+                <li>Fendi men</li>
+                <li>Burberry men</li>
+                <li>Off-White men</li>
+                <li>Balenciaga men</li>
+                <li>Givenchy men</li>
+                <li>Prada men</li>
+            </ul>
+        </aside>
+        
+        <section class="products" id="products">
+            <!-- Products will be dynamically inserted here -->
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+<script>
+     async function fetchProducts() {
+            try {
+                let response = await fetch('https://modesensdata-10ef4-default-rtdb.firebaseio.com//men.json');
+                let data = await response.json();
+                let productsContainer = document.getElementById('products');
+                
+                for (let key in data) {
+                    let product = data[key];
+                    let productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    
+                    productDiv.innerHTML = `
+                        <img src="${product.image2}" alt="${product.description}">
+                        <h3>${product.Designers}</h3>
+                        <p>${product.category}</p>
+                        <p>${product.description}</p>
+                        <p>Price: ${product.price}</p>
+                    `;
+                    
+                    productsContainer.appendChild(productDiv);
+                }
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+        
+        fetchProducts();
+</script>
