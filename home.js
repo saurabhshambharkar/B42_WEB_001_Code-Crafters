@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded",(e)=>{
         })   
     }
     else{
-        loginbtn.style.display=""
+        loginbtn.forEach((logbtn)=>{
+            logbtn.style.display="inline"
+        })
     }
 })
 function changeHeroSlide(direction) {
