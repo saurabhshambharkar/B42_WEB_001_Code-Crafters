@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            background-color: #730302;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: white;
+            color: #730302;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            
+        }
+        p{
+            
+        }
+        .fa-house{
+            position: absolute;
+            top:10px;
+            left: 10px;
+            color: white;
+            font-size: 25px;
+
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+    <div class="container">
+        <h2>User Profile</h2>
+        <p><strong>Name:</strong> <span id="userName"></span></p>
+        <p><strong>Email:</strong> <span id="userEmail"></span></p>
+        <p><strong>RecentBuy : </strong><span id="totalbuy"></span></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userName = document.getElementById("userName");
+            const userEmail = document.getElementById("userEmail");
+            const userbuy =document.getElementById("totalbuy");
+            const storedUser = JSON.parse(localStorage.getItem("user"));
+            if (storedUser) {
+                userName.textContent = storedUser.username || "N/A";
+                userEmail.textContent = storedUser.email || "N/A";
+                userbuy.textContent =localStorage.getItem("totalbuy") ||0
+            } else {
+                userName.textContent = "N/A";
+                userEmail.textContent = "N/A";
+                userbuy.textContent =localStorage.getItem("totalbuy") ||0
+            }
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/db7a431a79.js" crossorigin="anonymous"></script>
+</body>
+</html>

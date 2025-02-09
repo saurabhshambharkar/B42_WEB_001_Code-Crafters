@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- here is the Page or layout for Cart -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-family: Georgia, Times, 'Times New Roman', serif;
+        }
+        h1:hover{
+            font-weight: 200;
+        }
+        .cart-items {
+            display: grid;
+            padding-right:10px;
+            grid-template-rows: repeat(1,1fr);
+            gap: 1rem;
+        }
+        
+        /* @media screen and (max-width:500px){
+            .cart-items{
+                grid-template-columns:repeat(1,1fr);
+                gap: 0.5rem;
+            }
+        }
+
+        @media screen and (min-width:501px) and (max-width:780px){
+            .cart-items{
+                grid-template-columns: repeat(2,1fr);
+                gap: 1rem;
+            }
+        } */
+
+        .cart-item:hover{
+            animation: 1s linear 0s infinite alternate move;
+            
+            color: white;
+            background: linear-gradient(90deg, #730302 0%, #750604 15%, #730302 35%,#6a0402 100%);
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            
+            gap: 1rem;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 1rem;
+            
+        }
+        /* Animation for moving the cart elements  */
+        @keyframes move {
+            from {
+                transform: translateX(0px);
+            }
+            to {
+                transform: translateX(10px);
+            }
+        }
+
+        @keyframes changeSize {
+            from {
+                transform: scale(1);
+            }
+            to {
+                
+                transform: scale(1.1);
+            }
+        }
+        img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+            
+        }
+        img:hover{
+            animation: 1s ease-in-out 0s infinite alternate changeSize;
+        }
+        .cart-summary {
+            
+            text-align: right;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .cart-summary h3:hover{
+            font-weight: 200;
+        }
+        .remove-btn {
+            border-radius: 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            
+        }
+        .remove-btn:hover {
+            background-color: #141414;
+            animation: changeSize 1s ease-in-out infinite alternate;
+        }
+        .btn {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        
+    
+        .shop-now {
+            position: relative;
+            left: 40%;
+            width: 20%;
+            display: block;
+            text-align: center;
+            background-color: #333;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            
+            
+        }
+        .shop-now:hover {
+            background-color: #242323;
+            animation: 1s ease-in-out 0s infinite alternate changeSize;
+            
+        }
+
+        
+        .road {
+            position: relative;
+            display: flex;
+            margin: 20px;
+            justify-content: center;
+                align-items: center;
+            visibility: hidden;
+            width: 100%;
+            height: 90px;
+            background-color: gray;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .car {
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            left: -100px;
+            top: 30px;
+            font-size: 40px;
+            transition: transform 2s ease-in-out;
+        }
+
+        .move {
+            transform: translateX(100vw);
+        }
+        .fa-house{
+            font-size: 40px;
+            }
+        .emptymsg{
+            text-align: center;
+        }
+        .login-btn {
+            position: relative;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.5);
+        }
+
+        
+        .login-btn:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            box-shadow: 0 0 20px rgba(255, 65, 108, 0.8);
+            transform: scale(1.05);
+        }
+
+        
+        .login-btn::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .login-btn:hover::after {
+            opacity: 1;
+            animation: ripple 1.2s infinite;
+        }
+
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        
+        .login-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(255, 65, 108, 0.5);
+        }
+        #logibtncontainer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <!-- link to navigate home page -->
+     <!-- From Now the data is Shown if and only if the User is login-->
+    <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+    <h1>Golden Cart</h1>
+    <div class="cart-items"></div>
+    <div class="cart-summary"><h3>Total: $0.00</h3></div>
+    
+    <!--  button to render the payment page -->
+    <a class="shop-now" id="shopNow">Checkout</a>
+    <!--  when the Shop Now btn Click the Box loading Animation show-->
+    <div class="road" id="road">
+        
+        <div class="car" id="car">
+            🚚  
+        </div>
+    </div>
+
+    <script>
+        //On Coming to cart page the data is load from local Storage
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartItemsContainer = document.querySelector(".cart-items");
+            const cartSummary = document.querySelector(".cart-summary h3");
+            const shopNowButton = document.querySelector(".shop-now");
+            let body=document.querySelector("body")
+
+            if(localStorage.getItem("user")){
+                if(!localStorage.getItem('cart')){
+                    body.innerHTML=`
+                    <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+                        <h1>Golden Cart</h1>
+                        <h2 class="emptymsg">😮Oops! Your Cart Feels Lonely – Fill it Up! </h2>
+
+                    `
+                    document.querySelector(".emptymsg").addEventListener("mouseenter",(e)=>{
+                        e.target.innerText="Oops! Your Cart Feels Lonely – Fill it Up!😊"
+                        e.target.disabled=true
+                    })
+                    document.querySelector(".emptymsg").addEventListener("mouseleave",(e)=>{
+                        e.target.innerText="😮 Oops! Your Cart Feels Lonely – Fill it Up!"
+                        e.target.disabled=true
+                    })
+
+                }
+                else{
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                    function updateCartUI() {
+                        cartItemsContainer.innerHTML = "";
+                        let total = 0;
+
+                        cart.forEach(item => {
+                            total += item.price * item.quantity;
+
+                            const cartItem = document.createElement("div");
+                            cartItem.classList.add("cart-item");
+                            console.log(item.image)
+                            cartItem.innerHTML = `
+                                <img src="${item.image}" alt="${item.title}">
+                                <div>
+                                    <h2>${item.title}</h2>
+                                    <p>${item.description}</p>
+                                    <p>Price: $${item.price}</p>
+                                    <button class="btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button class="btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                                    <button class="btn remove-btn" data-id="${item.id}">Remove</button>
+                                </div>
+                            `;
+                            
+                            cartItemsContainer.appendChild(cartItem);
+                            
+                        });
+                        
+                        cartSummary.textContent = `Total: $${total.toFixed(2)}`;
+
+                        
+                        if (cart.length === 0) {
+                            shopNowButton.style.display = "none";
+                        } else {
+                            shopNowButton.style.display = "block";
+                        }
+
+                    
+                        document.querySelectorAll(".remove-btn").forEach(button => {
+                            button.addEventListener("click", (e) => {
+                                let id = e.target.dataset.id;
+                                removeFromCart(id);
+                            });
+                        });
+                        
+                        //total price add to local storage
+                        localStorage.setItem("totalPrice", total.toFixed(2));
+                    }
+
+                    window.updateQuantity = (id, change) => {
+                        let item = cart.find(item => item.id == id);
+                        if (item) {
+                            item.quantity += change;
+                            if (item.quantity <= 0) removeFromCart(id);
+                            localStorage.setItem("cart", JSON.stringify(cart));
+                            updateCartUI();
+                        }
+                    };
+
+                    function removeFromCart(id) {
+                        cart = cart.filter(item => item.id != id);
+                        localStorage.setItem("cart", JSON.stringify(cart));
+                        updateCartUI();
+                    }
+
+                    updateCartUI();
+
+                    // car animation 
+                    document.getElementById("shopNow").addEventListener("click", async function() {
+                        const car = document.getElementById("car");
+                        car.classList.add("move");
+                        const road=document.getElementById("road")
+                        
+                        let totalbuy=cart[cart.length-1].title
+                        
+                        localStorage.setItem("totalbuy",totalbuy)
+                        
+                        road.style.visibility="inherit"
+                        
+                        setTimeout(() => {
+                            car.classList.remove("move");
+                        },3000);
+                        setTimeout(()=>{
+                            window.location.href="checkout.html"
+                        },5000)
+                        
+                    });
+                }
+            
+            }
+            else{
+                body.innerHTML=`
+                    <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+                        
+                        <h2 class="emptymsg">😮Oops! You Need to login </h2>
+                        <div id="logibtncontainer">
+                        <a href="./singin.html"><button class="login-btn" >login</button></a>
+                        </div>
+                        
+
+                    `
+                document.querySelector(".emptymsg").addEventListener("mouseenter",(e)=>{
+                    e.target.innerText="Oops! You Need to login😊"
+                    e.target.disabled=true
+                })
+                document.querySelector(".emptymsg").addEventListener("mouseleave",(e)=>{
+                    e.target.innerText="😮Oops! You Need to login"
+                    e.target.disabled=true
+                })
+            }
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/db7a431a79.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MODESENS Kids</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <link rel="shortcut icon" href="data:image/jpeg;base64,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" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', serif;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+    }
+    .mobile-navbar {
+        width: 100vw;
+        height: 50px;
+        padding: 3px;
+        background-color: white;
+        position: fixed;
+        z-index: 11;
+    }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            padding: 4px;
+        }
+
+        .navbar>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+
+        .hamburger {
+            cursor: pointer;
+        }
+
+        /* desktop navbar */
+        .desktop-nav {
+            width: 100%;
+            height: 80px;
+        }
+
+        .desktop-navbar {
+            display: flex;
+            justify-content: space-evenly;
+            height: 100%;
+            padding: 4px 8px;
+            gap: 20px;
+        }
+
+        .desktop-logo {
+            width: 14%;
+            display: flex;
+            font-size: 18px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu {
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .tagA a{
+            text-decoration: none;
+            color: inherit;
+            margin: 4px;
+        }
+        
+
+        .menu span {
+            color: red;
+        }
+
+        .desktop-icons {
+            display: flex;
+            width: 12%;
+            justify-content: center;
+            gap: 15px;
+            font-size: 18px;
+            align-items: center;
+        }
+
+
+        .desktop-search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25%;
+        }
+
+        .desktop-search input {
+            width: 100%;
+            padding: 6px;
+        }
+
+        .side-menu {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            gap: 20px;
+            background-color: black;
+            color: white;
+            position: fixed;
+            z-index: 50;
+            padding: 20px; 
+        }
+
+        .side-menu-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .side-menu-icons input {
+            width: 80%;
+            padding: 2px;
+        }
+
+        .side-menu-links {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .side-menu-links li:hover {
+            background-color: #730302;
+            color: white;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .side-menu-cross {
+            position: absolute;
+            right: 70px;
+            top: 18px;
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media screen and  (max-width:800px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:1024px) {
+            .mobile-navbar {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: block;
+            }
+        }
+
+      main {
+            display: flex;
+            padding: 20px;
+        }
+        .filters {
+            width: 25%;
+            padding: 15px;
+            background: #f8f8f8;
+        }
+        .filters h2, .filters h3 {
+            margin: 10px 0;
+        }
+        .filters ul {
+            list-style: none;
+            padding: 0;
+        }
+        .filters ul li {
+            padding: 5px 0;
+        }
+        .products {
+            width: 75%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            background: #fff;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+        .addcartbtn{
+            padding: 10px 15px;
+            color: white;
+            font-weight: 700;
+            background-color: #730302;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+      }
+      .addcartbtn:hover {
+        background: linear-gradient(90deg, #680402 0%, #5d0402 15%, #590403 35%, #3a0302 100%);
+      }
+      .icons{
+        position: relative;
+        left: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <nav class="mobile-navbar">
+            <div class="navbar">
+                <div class="hamburger">
+                    <i class="ri-menu-line"></i>
+                </div>
+                <div class="mobile-logo tagA">
+               
+                    <a href="./index.html"><h5>MODESENS</h5></a>
+                </div>
+                <div class="icons tagA">
+                    <a href=""><i class="ri-user-line"></i></a> 
+                    <a href="./cart.html"><i class="ri-handbag-line"></i></a> 
+                </div>
+            </div>
+        </nav>
+        <nav class="desktop-nav">
+            <div class="desktop-navbar">
+                <div class="desktop-logo tagA">
+                    <a href="./index.html"><h2>MODESENS</h2></a>
+                    
+                </div>
+                <ul class="menu tagA">
+                    <a href="./womenswears.html"><li>Women</li></a>
+                    <a href="./menswears.html"><li>Men</li></a>
+                    <a href=""><li>Beauty</li></a>
+                    <a href="./kidswears.html"><li>Kids</li></a>
+                    <a href="./index.html"><li>Home</li></a>
+                    <a href="./designers.html"><li>Designers</li></a>
+                    <a href=""><li>Community</li></a>
+                    <a href=""><li><span>Sale</span></li></a>
+                </ul>
+                <div class="desktop-search">
+                    <input type="text" placeholder="Search For Prodcuts" id="searchProduct">
+                </div>
+                <div class="desktop-icons tagA">
+                    <i class="ri-heart-line"></i>
+                    <i class="ri-notification-3-line"></i>
+                     <a href="../User Page/user.html"><i class="ri-user-line"></i></a> 
+                     <a href="./cart.html"><i class="ri-handbag-line"></i></a> 
+                </div>
+            </div>
+        </nav>
+        <div class="side-menu hidden">
+            <div class="side-menu-cross">
+                <i class="ri-twitter-x-line"></i>
+            </div>
+            <div class="side-menu-logo tagA">
+                <a href="./index.html"><h2>MODESENS</h2></a>
+            </div>
+            <div class="side-menu-icons">
+                <input type="text" placeholder="Search For Prodcuts">
+                <i class="ri-heart-line"></i>
+                <i class="ri-notification-3-line"></i>
+            </div>
+            <ul class="side-menu-links tagA">
+                <a href="./womenswears.html"><li>Women</li></a>
+                <a href="./menswears.html"><li>Men</li></a>
+                <a href=""><li>Beauty</li></a>
+                <a href="./kidswears.html"><li>Kids</li></a>
+                <a href="./index.html"><li>Home</li></a>
+                <a href="./designers.html"><li>Designers</li></a>
+                <a href=""><li>Community</li></a>
+                <a href=""><li><span>Sale</span></li></a>
+            </ul>
+
+        </div>
+    </header>
+    <main>
+        <aside class="filters">
+            <h2>Filter</h2>
+            <input type="text" placeholder="Filter by keyword" >
+            <h3>Gender</h3>
+            <h3>Category</h3>
+            <h3>Designer</h3>
+            <h3>Color</h3>
+            <h3>Material</h3>
+            <h3>Conditions</h3>
+            <h3>Sale Discount</h3>
+            <h3>Store</h3>
+            <h3>Related Categories</h3>
+            <ul>
+                <li>men Clothing</li>
+                <li>men Shoes</li>
+                <li>men Bags</li>
+                <li>men Accessories</li>
+                <li>men Beauty</li>
+                <li>men Sale</li>
+                <li>Women</li>
+                <li>Pre-Owned men</li>
+            </ul>
+            <h3>Related Searches</h3>
+            <ul>
+                <li>Gucci men</li>
+                <li>Versace men</li>
+                <li>Valentino men</li>
+                <li>Saint Laurent men</li>
+                <li>Fendi men</li>
+                <li>Burberry men</li>
+                <li>Off-White men</li>
+                <li>Balenciaga men</li>
+                <li>Givenchy men</li>
+                <li>Prada men</li>
+            </ul>
+        </aside>
+        
+        <section class="products" id="products">
+            <!-- Products will be dynamically inserted here -->
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+<script>
+     async function fetchProducts() {
+            try {
+                let response = await fetch('https://modesensdata-10ef4-default-rtdb.firebaseio.com/kids.json');
+                let data = await response.json();
+                let productsContainer = document.getElementById('products');
+                let i=0
+                let searchProduct=document.querySelector("#searchProduct")
+                searchProduct.addEventListener("input",(e)=>{displayFilterData(data,e.target.value)})
+                for (let key in data) {
+                    let {id,Designers,category,description,image1,price,productCategory} = data[key];
+                    let product = data[key];
+                    let productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+
+                    let addcart = document.createElement("button");
+                    addcart.innerText = "Add to Cart";
+                    addcart.classList.add("addcartbtn");
+                    addcart.setAttribute("id",id)
+                    
+                    
+                    productDiv.innerHTML = `
+                        <img src="${product.image2}" alt="${product.description}">
+                        <h3>${product.Designers}</h3>
+                        <p>${product.category}</p>
+                        <p>${product.description}</p>
+                        <p>Price: ${product.price}</p>
+                    `;
+                    
+                    productDiv.append(addcart)
+                    productsContainer.appendChild(productDiv);
+                    addcart.addEventListener("click", (e) => addToCart(id,Designers,price,image1,description));
+                }
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+        function addToCart(id,title, price, image,description) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            let existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id, title, price, image,description, quantity: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            //window.location.href = './cart.html';
+            alert("Product Added to Cart")
+        }
+        async function displayFilterData(data,srchwd){
+            try{
+                let productsContainer = document.getElementById('products');
+                productsContainer.innerHTML=""
+                data=data.filter((item)=>item.description.toLowerCase().includes(srchwd.toLowerCase()))
+                
+                for (let key in data) {
+                    
+                    //console.log(data[key])
+                    let {id,Designers,category,description,image1,price,productCategory} = data[key];
+                    let productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+
+                    let addcart = document.createElement("button");
+                    addcart.innerText = "Add to Cart";
+                    addcart.classList.add("addcartbtn");
+                    addcart.setAttribute("id",id)
+                    
+                    // addcart.dataset.id = product.id;
+                    // addcart.dataset.title = product.Designers;
+                    // addcart.dataset.price = product.price; // Dummy price
+                    // addcart.dataset.image = product.image2;
+                    //
+                    
+
+                    //console.log(price)
+                    productDiv.innerHTML = `
+                        <img src="${image1}" alt="${description}">
+                        <h3>${Designers}</h3>
+                        <p>${category}</p>
+                        <p>${description}</p>
+                        <p>Price: ${price}</p>
+                    `;
+                    productDiv.append(addcart)
+                    productsContainer.appendChild(productDiv);
+                    addcart.addEventListener("click", (e) => addToCart(id,Designers,price,image1,description));
+                    
+                }
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+        let hamburger=document.querySelector(".hamburger")
+        let cross=document.querySelector(".side-menu-cross")
+        let sideMenu=document.querySelector(".side-menu")
+        hamburger.addEventListener("click",()=>{
+            CloseAndOpenSideMenu(true)
+        })
+        cross.addEventListener("click",()=>{
+            CloseAndOpenSideMenu(false)
+        })
+        // side-menu Functionality
+        function CloseAndOpenSideMenu(bool){
+        if(bool) sideMenu.classList.remove("hidden")
+        else sideMenu.classList.add("hidden")
+        }
+        fetchProducts();
+</script>

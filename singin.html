@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modesons Sign In</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 350px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Logo */
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007185; /* Amazon-inspired blue */
+            margin-bottom: 15px;
+        }
+        /* Form Fields */
+        .form-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+        label {
+            font-size: 14px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: pink; /* Amazon yellow */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #111;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #f7ca00;
+        }
+        /* Links */
+        a {
+            display: block;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #0066c0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        #errmsg{
+            color:red;
+            font-weight: 100;
+            
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo" style="
+            color: black;">Modesons</div>
+        <form>
+            <div class="form-group">
+                <label for="usename">User_Name</label>
+                <input type="text" id="username" placeholder="Enter User Name">
+                <label for="email">Email or mobile phone number</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email or phone">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your Password">
+            </div>
+            <button type="submit" id="submitbtn">Continue</button>
+        </form>
+        <p id="errmsg"></p>
+        <a href="#">Need help?</a>
+        <div class="footer">
+            New to Modesons ? <a href="./createAccount.html" target="_blank">Create your Modesons account</a>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let errmsg=document.querySelector("#errmsg")
+    errmsg.textContent=""
+    document.querySelector("#submitbtn").addEventListener('click',(e)=>{
+        e.preventDefault()
+        handleLogin()
+    })
+    async function handleLogin(){
+        let email=document.querySelector("#email").value
+        let userName=document.querySelector("#username").value
+        let password=document.querySelector("#password").value
+    try {
+        console.log("data fething")
+        const response = await fetch("https://sd-project-5-3438.onrender.com/login", {
+            method:"POST",
+            headers: {"Content-Type": "application/json"},
+            body:JSON.stringify({ email:email,
+                password:password
+            })
+       });
+       data=await response.json()
+       console.log(data)
+      //If login is successful, save the token and navigate to the home page
+
+      if (data.token) {
+        localStorage.setItem("token",data.token);
+        // set user
+
+        
+        let userData = { "username":userName,"email":email,"password":password };
+        localStorage.setItem("user",JSON.stringify(userData));
+        alert("Login Successfuly")
+        window.location.href="./index.html"
+      }
+          // Redirect to the home page
+        else{
+            errmsg.textContent=data.message
+            console.log("hello",data.message)
+            inn
+    }
+    } catch (err) {
+      // Handle errors (e.g., incorrect email/password)
+      if (err.response) {
+        console.log("Login Error:", err);
+
+        if (err.response.status === 404) {
+          alert("User not found! Redirecting to signup...");
+        } else {
+          
+          console.log("any other err occur")
+        }
+      } else {
+        
+        console.log("any other err occur")
+      }
+      
+    }
+    }
+</script>
