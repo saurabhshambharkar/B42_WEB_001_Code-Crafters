@@ -3,6 +3,19 @@ let currenHeroSaletIndex = 0;
 let currentGiftProductsIndex=0
 let festiveGiftProductsIndex=0
 let topGiftProductsIndex=0
+
+document.addEventListener("DOMContentLoaded",(e)=>{
+    let loginbtn=document.querySelectorAll("#login")
+    if(localStorage.getItem("user")){
+
+        loginbtn.forEach((logbtn)=>{
+            logbtn.style.display="none"
+        })   
+    }
+    else{
+        loginbtn.style.display=""
+    }
+})
 function changeHeroSlide(direction) {
     const slides = document.querySelector('.hero-slides');
     const totalSlides = document.querySelectorAll('.hero-slide').length;
