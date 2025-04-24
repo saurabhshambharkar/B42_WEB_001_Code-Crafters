@@ -4,12 +4,12 @@
 
 <h1 align="center">Code‑Crafters 🛍️ – Fashion & Lifestyle Store</h1>
 <p align="center">
-  Your one‑stop shop for men’s, women’s, kids’ apparel and beauty essentials.<br/>
+  A fast, responsive front‑end shop for men’s, women’s & kids’ fashion plus beauty essentials.<br/>
   <a href="🔗 LIVE_DEMO_URL" target="_blank"><strong>🚀 Try the Live Demo →</strong></a>
 </p>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/stack-MERN-informational"/>
+  <img src="https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-informational"/>
   <img src="https://img.shields.io/badge/PWA-ready-blueviolet"/>
   <img src="https://img.shields.io/github/license/your‑user/B42_WEB_001_Code-Crafters.svg"/>
 </div>
@@ -18,10 +18,10 @@
 
 ## ✨ Key Highlights
 - **Multi‑Category Catalog** – Women, Men, Kids & Beauty in one sleek UI.  
-- **Smart Cart & Checkout** – Save items, update quantities, lightning‑fast order flow.  
-- **Responsive & PWA** – Shop comfortably on any device; install it like an app.  
-- **Instant Search & Filters** – Find the perfect fit in seconds.  
-- **Secure Payments** – Stripe‑powered checkout (test mode).  
+- **Smart Cart & Checkout** – Add, update or remove items with smooth JS interactivity.  
+- **Responsive & PWA** – Mobile‑first design; installable like a native app.  
+- **Instant Search & Filters** – Vanilla‑JS search makes finding products a breeze.  
+- **Pure Front‑End** – No frameworks, no back‑end: just clean HTML, CSS & JS.
 
 ---
 
@@ -38,34 +38,25 @@
 ---
 
 ## 🚀 Tech Stack
-| Layer | Tools |
-|-------|-------|
-| **Frontend** | React 18 • Vite • Tailwind CSS • React‑Router v6 |
-| **State** | Redux Toolkit, RTK Query |
-| **Backend** | Node.js • Express • MongoDB Atlas |
-| **Payments** | Stripe |
-| **Auth** | JWT + HttpOnly cookies |
-| **CI / CD** | GitHub Actions → Netlify (preview) / Render (API) |
+
+| Layer        | Tools & Libraries                 |
+|--------------|-----------------------------------|
+| **Markup**   | HTML5                             |
+| **Styling**  | CSS3 (Flexbox, Grid, custom media queries) |
+| **Logic**    | Vanilla JavaScript (ES6+)         |
+| **Build**    | No build tools required—just open `index.html` |
+| **PWA**      | Web App Manifest + Service Worker |
 
 ---
 
 ## 🛠️ Local Setup
 
 ```bash
-# 1. Clone
+# 1. Clone the repo
 git clone https://github.com/your-user/B42_WEB_001_Code-Crafters.git
 cd B42_WEB_001_Code-Crafters
 
-# 2. Install
-pnpm install          # or npm / yarn
-
-# 3. Env variables
-cp .env.example .env.local
-# → add Mongo URI, JWT_SECRET, Stripe keys…
-
-# 4. Seed sample data (optional)
-pnpm run seed
-
-# 5. Run dev servers
-pnpm --filter "server" dev   # API on http://localhost:5000
-pnpm --filter "client" dev   # Web on http://localhost:5173
+# 2. Open the app
+# You can simply double‑click index.html or use a local server:
+npx serve .
+# then navigate to http://localhost:5000 (default serve port)
