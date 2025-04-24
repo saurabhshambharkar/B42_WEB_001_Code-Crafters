@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="🔗/logo.png" width="120" alt="Code‑Crafters logo"/>
-</p>
 
 <h1 align="center">Code‑Crafters 🛍️ – Fashion & Lifestyle Store</h1>
 <p align="center">
