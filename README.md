@@ -1,5 +1,22 @@
 # B42_WEB_001_Code-Crafters
 
+Project Description:c
+This project is a frontend clone of ModeSens, a fashion product discovery and comparison platform. The clone aims to replicate the sleek UI and essential user experience of the original website, focusing on product exploration, visual appeal, and responsive design. Built using HTML, CSS, and JavaScript, this project demonstrates proficiency in structuring responsive layouts and creating dynamic, interactive web pages without relying on external libraries or frameworks.
+
+Key Features:
+Homepage UI Clone – Designed to closely match the original layout with banners, sliders, and featured sections.
+
+Product Listings – Display of fashion products with clean grid views, brand names, prices, and thumbnails.
+
+Price Comparison Section – Replicates ModeSens-style comparison from multiple vendors (static data in this clone).
+
+Responsive Design – Optimized for various screen sizes including desktop, tablet, and mobile.
+
+Interactive Components – Hover effects, dropdowns, and other JavaScript-powered interactions.
+
+Navigation Bar & Footer – Fully functional navigation with search placeholder and structured footer.
+
+deploy link: https://sweet-pothos-685387.netlify.app/
 
 Landing page or our wesite
 ![image](https://github.com/user-attachments/assets/6dc8ad59-ea12-4cbc-98f3-8cb2542630be)
